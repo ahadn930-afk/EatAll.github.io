@@ -1,221 +1,172 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Page</title>
+
+    <!-- ✅ CDN first, then config -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script>tailwind.config = { darkMode: 'class' }</script>
+
+    <link rel="icon" type="image/x-icon" href="../../../assets/images/android-chrome-192x192.png">
 </head>
 
-<body>
+<!-- ✅ Single body tag with dark classes -->
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
 
-<nav class="flex items-center justify-between w-full h-12 bg-red-600 text-white p-2">
-        <button class="bg-red-600 p-2 list-none rounded hover:bg-gray-800"><a href="../../../index.html"><li>Eat All</li></a></button>
+    <!-- ✅ Navbar with theme toggle button -->
+    <nav class="flex items-center justify-between w-full h-12 bg-red-600 text-white p-2">
+        <button class="bg-red-600 p-2 list-none rounded hover:bg-gray-800">
+            <a href="../../../index.html"><li>Eat All</li></a>
+        </button>
         <div class="flex gap-10 list-none">
-        <a href="../../../index.html">
-            <li class="hover:text-black">Home</li></a> 
-            <a href="../../../src/pages/about/about.html">
-            <li class="hover:text-black">About</li></a>
-        <a href="../../../src/pages/contact/contact.html">
-    
-            <li class="hover:text-black">Contact Us</li>
-        </a>
+            <a href="../../../index.html"><li class="hover:text-black">Home</li></a>
+            <a href="../../../src/pages/about/about.html"><li class="hover:text-black">About</li></a>
+            <a href="../../../src/pages/contact/contact.html"><li class="hover:text-black">Contact Us</li></a>
         </div>
+
+        <!-- ✅ Theme Toggle Button -->
+        <button
+            id="theme-toggle"
+            class="p-2 rounded-full bg-red-700 hover:bg-red-800 text-white text-lg transition"
+            aria-label="Toggle Theme">
+            🌙
+        </button>
+
         <div class="flex gap-5 list-none">
-        <a href="../../../src/pages/sign in/sign in.html">
-            <li class="hover:text-black">Sign In</li>
-        </a>
-        <a href="../../../src/pages/sign up/sign up.html">
-            <li class="hover:text-black">Sign Up</li></a>
+            <a href="../../../src/pages/sign in/sign in.html"><li class="hover:text-black">Sign In</li></a>
+            <a href="../../../src/pages/sign up/sign up.html"><li class="hover:text-black">Sign Up</li></a>
         </div>
-        
     </nav>
 
-    
-<div id="accordion-collapse" data-accordion="collapse" class="rounded-base border border-default overflow-hidden shadow-xs">
-<h2 id="accordion-collapse-heading-1">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body rounded-t-base border border-t-0 border-x-0 border-b-default hover:text-heading hover:bg-neutral-secondary-medium gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-    <span>What is Flowbite?</span>
-    <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg>
-    </button>
-</h2>
-<div id="accordion-collapse-body-1" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default" aria-labelledby="accordion-collapse-heading-1">
-    <div class="p-4 md:p-5">
-    <p class="mb-2 text-body">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
-    <p class="text-body">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-fg-brand hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
-    </div>
-</div>
-<h2 id="accordion-collapse-heading-2">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body border border-x-0 border-b-default border-t-0 hover:text-heading hover:bg-neutral-secondary-medium gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
-    <span>Is there a Figma file available?</span>
-    <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg>
-    </button>
-</h2>
-<div id="accordion-collapse-body-2" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default" aria-labelledby="accordion-collapse-heading-2">
-    <div class="p-4 md:p-5">
-    <p class="mb-2 text-body">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
-    <p class="text-body">Check out the <a href="https://flowbite.com/figma/" class="text-fg-brand hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
-    </div>
-</div>
-<h2 id="accordion-collapse-heading-3">
-    <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body hover:text-heading hover:bg-neutral-secondary-medium gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
-    <span>What are the differences between Flowbite and Tailwind UI?</span>
-    <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg>
-    </button>
-</h2>
-<div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
-    <div class="p-4 md:p-5 border border-t-default border-b-0 border-x-0">
-    <p class="mb-2 text-body">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
-    <p class="mb-2 text-body">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
-    <p class="mb-2 text-body">Learn more about these technologies:</p>
-    <ul class="ps-5 text-body list-disc">
-        <li><a href="https://flowbite.com/pro/" class="text-fg-brand hover:underline">Flowbite Pro</a></li>
-        <li><a href="https://tailwindui.com/" rel="nofollow" class="text-fg-brand hover:underline">Tailwind UI</a></li>
-    </ul>
-    </div>
-</div>
-</div>
-<div class="p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
-<span class="font-medium">Danger alert!</span> Change a few things up and try submitting again.
-</div>
-
-
-
-<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Noteworthy technology acquisitions 2021</h5>
-    <p class="text-body mb-6">Here are the biggest technology acquisitions of 2025 so far, in reverse chronological order.</p>
-    <a href="#" class="inline-flex items-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
-        Read more
-        <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/></svg>
-    </a>
-</div>
-
-
-<span class="bg-brand-softer text-fg-brand-strong text-xs font-medium px-1.5 py-0.5 rounded">Brand</span>
-<span class="bg-neutral-primary-soft text-heading text-xs font-medium px-1.5 py-0.5 rounded">Alternative</span>
-<span class="bg-neutral-secondary-medium text-heading text-xs font-medium px-1.5 py-0.5 rounded">Gray</span>
-<span class="bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounded">Danger</span>
-<span class="bg-success-soft text-fg-success-strong text-xs font-medium px-1.5 py-0.5 rounded">Success</span>
-<span class="bg-warning-soft text-fg-warning text-xs font-medium px-1.5 py-0.5 rounded">Warning</span>
-
-
-<div class="relative mx-auto border-default bg-base border-[14px] rounded-[2.5rem] h-[454px] max-w-[341px] md:h-[682px] md:max-w-[512px]">
-    <div class="h-[32px] w-[3px] bg-base absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-    <div class="h-[46px] w-[3px] bg-base absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-    <div class="h-[46px] w-[3px] bg-base absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-    <div class="h-[64px] w-[3px] bg-base absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-    <div class="rounded-[2rem] overflow-hidden h-[426px] md:h-[654px] bg-neutral-primary ">
-        <img src="https://flowbite.s3.amazonaws.com/docs/device-mockups/tablet-mockup-image.png" class="dark:hidden h-[426px] md:h-[654px]" alt="">
-        <img src="https://flowbite.s3.amazonaws.com/docs/device-mockups/tablet-mockup-image-dark.png" class="hidden dark:block h-[426px] md:h-[654px]" alt="">
-    </div>
-</div>
-
-
-
-<div class="relative mx-auto border-default bg-base dark:bg-base border-[14px] rounded-[2.5rem] h-[600px] w-[300px]">
-    <div class="h-[32px] w-[3px] bg-base absolute -start-[17px] top-[72px] rounded-s-lg"></div>
-    <div class="h-[46px] w-[3px] bg-base absolute -start-[17px] top-[124px] rounded-s-lg"></div>
-    <div class="h-[46px] w-[3px] bg-base absolute -start-[17px] top-[178px] rounded-s-lg"></div>
-    <div class="h-[64px] w-[3px] bg-base absolute -end-[17px] top-[142px] rounded-e-lg"></div>
-    <div class="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-neutral-primary ">
-        <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-light.png" class="dark:hidden w-[272px] h-[572px]" alt="">
-        <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/mockup-1-dark.png" class="hidden dark:block w-[272px] h-[572px]" alt="">
-    </div>
-</div>
-
-
-
-
-<div id="date-range-picker" date-rangepicker class="flex items-center">
-<div class="relative">
-    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-        <svg class="w-4 h-4 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/></svg>
-    </div>
-    <input id="datepicker-range-start" name="start" type="text" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Select date start">
-</div>
-<span class="mx-4 text-body">to</span>
-<div class="relative">
-    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-        <svg class="w-4 h-4 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/></svg>
-    </div>
-    <input id="datepicker-range-end" name="end" type="text" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Select date end">
-</div>
-</div>
-
-
-<footer class="bg-neutral-primary-soft">
-    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-        <div class="md:flex md:justify-between">
-        <div class="mb-6 md:mb-0">
-            <a href="https://flowbite.com/" class="flex items-center">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-7 me-3" alt="FlowBite Logo" />
-                <span class="text-heading self-center text-2xl font-semibold whitespace-nowrap">Flowbite</span>
-            </a>
+    <div id="accordion-collapse" data-accordion="collapse" class="rounded-base border border-default overflow-hidden shadow-xs">
+        <h2 id="accordion-collapse-heading-1">
+            <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body rounded-t-base border border-t-0 border-x-0 border-b-default hover:text-heading hover:bg-neutral-secondary-medium gap-3" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                <span>What is Flowbite?</span>
+                <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg>
+            </button>
+        </h2>
+        <div id="accordion-collapse-body-1" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default" aria-labelledby="accordion-collapse-heading-1">
+            <div class="p-4 md:p-5">
+                <p class="mb-2 text-body">Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.</p>
+                <p class="text-body">Check out this guide to learn how to <a href="/docs/getting-started/introduction/" class="text-fg-brand hover:underline">get started</a> and start developing websites even faster with components on top of Tailwind CSS.</p>
+            </div>
         </div>
-        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
-            <div>
-                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Resources</h2>
-                <ul class="text-body font-medium">
-                    <li class="mb-4">
-                        <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
-                    </li>
-                    <li>
-                        <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
-                    </li>
-                </ul>
+        <h2 id="accordion-collapse-heading-2">
+            <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body border border-x-0 border-b-default border-t-0 hover:text-heading hover:bg-neutral-secondary-medium gap-3" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">
+                <span>Is there a Figma file available?</span>
+                <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg>
+            </button>
+        </h2>
+        <div id="accordion-collapse-body-2" class="hidden border border-s-0 border-e-0 border-t-0 border-b-default" aria-labelledby="accordion-collapse-heading-2">
+            <div class="p-4 md:p-5">
+                <p class="mb-2 text-body">Flowbite is first conceptualized and designed using the Figma software so everything you see in the library has a design equivalent in our Figma file.</p>
+                <p class="text-body">Check out the <a href="https://flowbite.com/figma/" class="text-fg-brand hover:underline">Figma design system</a> based on the utility classes from Tailwind CSS and components from Flowbite.</p>
             </div>
-            <div>
-                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Follow us</h2>
-                <ul class="text-body font-medium">
-                    <li class="mb-4">
-                        <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
-                    </li>
-                    <li>
-                        <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Legal</h2>
-                <ul class="text-body font-medium">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-                    </li>
+        </div>
+        <h2 id="accordion-collapse-heading-3">
+            <button type="button" class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-body hover:text-heading hover:bg-neutral-secondary-medium gap-3" data-accordion-target="#accordion-collapse-body-3" aria-expanded="false" aria-controls="accordion-collapse-body-3">
+                <span>What are the differences between Flowbite and Tailwind UI?</span>
+                <svg data-accordion-icon class="w-5 h-5 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 15 7-7 7 7"/></svg>
+            </button>
+        </h2>
+        <div id="accordion-collapse-body-3" class="hidden" aria-labelledby="accordion-collapse-heading-3">
+            <div class="p-4 md:p-5 border border-t-default border-b-0 border-x-0">
+                <p class="mb-2 text-body">The main difference is that the core components from Flowbite are open source under the MIT license, whereas Tailwind UI is a paid product. Another difference is that Flowbite relies on smaller and standalone components, whereas Tailwind UI offers sections of pages.</p>
+                <p class="mb-2 text-body">However, we actually recommend using both Flowbite, Flowbite Pro, and even Tailwind UI as there is no technical reason stopping you from using the best of two worlds.</p>
+                <p class="mb-2 text-body">Learn more about these technologies:</p>
+                <ul class="ps-5 text-body list-disc">
+                    <li><a href="https://flowbite.com/pro/" class="text-fg-brand hover:underline">Flowbite Pro</a></li>
+                    <li><a href="https://tailwindui.com/" rel="nofollow" class="text-fg-brand hover:underline">Tailwind UI</a></li>
                 </ul>
             </div>
         </div>
     </div>
-    <hr class="my-6 border-default sm:mx-auto lg:my-8" />
-    <div class="sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-body sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
-        </span>
-        <div class="flex mt-4 sm:justify-center sm:mt-0">
-            <a href="#" class="text-body hover:text-heading">
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/></svg>
-                <span class="sr-only">Facebook page</span>
-            </a>
-            <a href="#" class="text-body hover:text-heading ms-5">
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/></svg>
-                <span class="sr-only">Discord community</span>
-            </a>
-            <a href="#" class="text-body hover:text-heading ms-5">
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.795 10.533 20.68 2h-3.073l-5.255 6.517L7.69 2H1l7.806 10.91L1.47 22h3.074l5.705-7.07L15.31 22H22l-8.205-11.467Zm-2.38 2.95L9.97 11.464 4.36 3.627h2.31l4.528 6.317 1.443 2.02 6.018 8.409h-2.31l-4.934-6.89Z"/></svg>
-            <span class="sr-only">Twitter page</span>
-            </a>
-            <a href="#" class="text-body hover:text-heading ms-5">
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"/></svg>
-                <span class="sr-only">GitHub account</span>
-            </a>
-            <a href="#" class="text-body hover:text-heading ms-5">
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 10 10A10.009 10.009 0 0 0 12 2Zm6.613 4.614a8.523 8.523 0 0 1 1.93 5.32 20.093 20.093 0 0 0-5.949-.274c-.059-.149-.122-.292-.184-.441a23.879 23.879 0 0 0-.566-1.239 11.41 11.41 0 0 0 4.769-3.366ZM10 3.707a8.82 8.82 0 0 1 2-.238 8.5 8.5 0 0 1 5.664 2.152 9.608 9.608 0 0 1-4.476 3.087A45.755 45.755 0 0 0 10 3.707Zm-6.358 6.555a8.57 8.57 0 0 1 4.73-5.981 53.99 53.99 0 0 1 3.168 4.941 32.078 32.078 0 0 1-7.9 1.04h.002Zm2.01 7.46a8.51 8.51 0 0 1-2.2-5.707v-.262a31.641 31.641 0 0 0 8.777-1.219c.243.477.477.964.692 1.449-.114.032-.227.067-.336.1a13.569 13.569 0 0 0-6.942 5.636l.009.003ZM12 20.556a8.508 8.508 0 0 1-5.243-1.8 11.717 11.717 0 0 1 6.7-5.332.509.509 0 0 1 .055-.02 35.65 35.65 0 0 1 1.819 6.476 8.476 8.476 0 0 1-3.331.676Zm4.772-1.462A37.232 37.232 0 0 0 15.113 13a12.513 12.513 0 0 1 5.321.364 8.56 8.56 0 0 1-3.66 5.73h-.002Z" clip-rule="evenodd"/></svg>
-                <span class="sr-only">Dribbble account</span>
-            </a>
+
+    <div class="p-4 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft" role="alert">
+        <span class="font-medium">Danger alert!</span> Change a few things up and try submitting again.
+    </div>
+
+    <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+        <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">Noteworthy technology acquisitions 2021</h5>
+        <p class="text-body mb-6">Here are the biggest technology acquisitions of 2025 so far, in reverse chronological order.</p>
+        <a href="#" class="inline-flex items-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+            Read more
+            <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/></svg>
+        </a>
+    </div>
+
+    <div id="date-range-picker" date-rangepicker class="flex items-center">
+        <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/></svg>
+            </div>
+            <input id="datepicker-range-start" name="start" type="text" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Select date start">
+        </div>
+        <span class="mx-4 text-body">to</span>
+        <div class="relative">
+            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-body" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/></svg>
+            </div>
+            <input id="datepicker-range-end" name="end" type="text" class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Select date end">
         </div>
     </div>
+
+    <!-- Footer -->
+    <div class="mx-auto w-full max-w-screen-xl p-1 py-4 lg:py-6">
+        <footer class="bg-neutral-primary-soft shadow-md border-t border-gray-100 shadow-[0px_0px_5px_2px_rgba(0,0,0,0.1)]">
+            <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+                <div class="md:flex md:justify-between">
+                    <div class="mb-6 md:mb-0">
+                        <a href="../../../index.html" class="flex items-center">
+                            <img src="https://flowbite.com/docs/images/logo.svg" class="h-7 me-3" alt="FlowBite Logo" />
+                            <span class="text-heading self-center text-2xl font-semibold whitespace-nowrap">EatAll</span>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                        <div>
+                            <a href="../../../src/pages/about/about.html">
+                                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">About Us</h2>
+                            </a>
+                            <ul class="text-body font-medium">
+                                <li class="mb-4">
+                                    <a href="../../../src/pages/contact/contact.html">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="../../../src/pages/sign in/sign in.html">
+                                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Sign In</h2>
+                            </a>
+                            <ul class="text-body font-medium">
+                                <li class="mb-4">
+                                    <a href="../../../src/pages/sign up/sign up.html">Sign Up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-6 border-default sm:mx-auto lg:my-8" />
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <span class="text-sm text-body sm:text-center">© 2026 <a href="../../../index.html" class="hover:underline">EatAll™</a>. All Rights Reserved.</span>
+                </div>
+            </div>
+        </footer>
     </div>
-</footer>
+
     <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+
+    <!-- ✅ Theme Script — path is 3 levels up to reach src/utilites/theme.js -->
+    <script type="module">
+        import { getInitialTheme, applyTheme, toggleTheme, updateToggleButton } from '../../../src/utilites/theme.js';
+
+        const saved = getInitialTheme();
+        applyTheme(saved);
+        updateToggleButton(saved);
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    </script>
+
 </body>
 </html>

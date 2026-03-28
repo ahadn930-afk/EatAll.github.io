@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eat All</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-
+    <script>tailwind.config = { darkMode: 'class' }</script>
+    <link rel="icon" type="image/x-icon" href="../my-website-project/assets/images/android-chrome-192x192.png">
+    <script type="module" src="./src/pages/home/home.js"></script>
 </head>
-
-<body>
-
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
     <!-- Navigation Bar -->
     <nav class="flex items-center justify-between w-full h-12 bg-red-600 text-white p-2">
         <button class="bg-red-600 p-2 list-none rounded hover:bg-gray-800"><a href="../my-website-project/index.html"><li>Eat All</li></a></button>
@@ -23,6 +22,13 @@
             <li class="hover:text-black">Contact Us</li>
         </a>
         </div>
+        <button
+        id="theme-toggle"
+        class="p-2 rounded-full bg-red-700 hover:bg-red-800 text-white text-lg transition"
+        aria-label="Toggle Theme"
+    >
+    🌙
+    </button>
         <div class="flex gap-5 list-none">
         <a href="./src/pages/sign in/sign in.html">
             <li class="hover:text-black">Sign In</li>
@@ -32,6 +38,15 @@
         </div>
         
     </nav>
+
+    
+
+    <div class="fixed top-14 right-1 z-50">
+    <button class="bg-red-500 text-white px-6 py-3 rounded-full shadow-lg font-bold">
+        🛒 Cart (<span id="cart-count">0</span>)
+    </button>
+</div>
+
 <section class="bg-white dark:bg-gray-900">
     <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div class="mr-auto place-self-center lg:col-span-7">
@@ -59,6 +74,73 @@
 <button type="button" class="text-white bg-dark box-border border border-transparent hover:bg-dark-strong focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Dark</button>
 <button type="button" class="text-heading bg-transparent box-border border border-transparent hover:bg-neutral-secondary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Ghost</button>
 
+
+
+
+
+    <div class="max-w-md mx-auto my-10 px-2">
+    <div class="relative">
+        <input 
+            type="text" 
+            id="menu-search" 
+            placeholder="Search for zinger, pizza..." 
+            class="w-full p-4 pl-10 rounded-full border border-gray-300 focus:ring-2 focus:ring-orange-500 outline-none shadow-sm dark:bg-gray-700 dark:text-white"
+        >
+        <span class="absolute left-4 top-4 text-gray-400">🔍</span>
+    </div>
+</div>
+
+
+
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+    <button id="btn-all" class="px-4 py-2 bg-orange-500 text-white rounded-full shadow hover:bg-orange-600 transition">All</button>
+    <button id="btn-burgers" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full shadow hover:bg-orange-500 hover:text-white transition">Burgers</button>
+    <button id="btn-pizza" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full shadow hover:bg-orange-500 hover:text-white transition">Pizza</button>
+    <button id="btn-low-price" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full shadow hover:bg-orange-500 hover:text-white transition">Cheapest First</button>
+</div>
+<div class="flex flex-wrap justify-center gap-2 mb-8">
+    <button id="btn-top-rated" class="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full shadow hover:bg-yellow-500 hover:text-white transition">⭐ Top Rated</button>
+    
+    <button id="btn-drinks" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-full shadow hover:bg-orange-500 hover:text-white transition">Beverages</button>
+</div>
+
+
+<div class="flex flex-wrap justify-center gap-4 my-4">
+    <button onclick="sortPrice('low')" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-500 hover:text-white transition">Price: Low to High</button>
+    <button onclick="sortPrice('high')" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-500 hover:text-white transition">Price: High to Low</button>
+</div>
+
+
+<section class="p-2">
+    <h2 class="text-3xl font-bold text-center mb-8">Our Delicious Menu</h2>
+    <div id="food-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </div>
+</section>
+
+<div id="food-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6"></div>
+
+
+<!-- Object CRUD Methods Display -->
+<div class="max-w-4xl mx-auto my-10 px-4">
+    <h2 class="text-2xl font-bold text-center mb-6 dark:text-white">🔧 Object CRUD Methods</h2>
+
+    <!-- Buttons to trigger each method -->
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <button onclick="showCreate()" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">➕ Create</button>
+        <button onclick="showRead(1)" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">👁️ Read</button>
+        <button onclick="showUpdate(1)" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">✏️ Update</button>
+        <button onclick="showDelete(4)" class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">🗑️ Delete</button>
+        <button onclick="showFreeze()" class="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition">🔒 Freeze</button>
+        <button onclick="showSummaryReport()" class="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-800 transition">📊 Summary</button>
+    </div>
+
+    <!-- Output Display Box -->
+    <div id="crud-output" class="bg-gray-100 dark:bg-gray-800 rounded-xl p-6 min-h-40 shadow-inner">
+        <p class="text-gray-400 text-center">Click a button above to see the result</p>
+    </div>
+</div>
+
+
 <div class="m-5 p-5 bg-black text-white rounded">
     <h1 class="felx items-center text-2xl font-bold">Show Project Summary</h1>
 
@@ -74,57 +156,122 @@
 
 <p id="summary"></p>
 
-<script src="src/pages/script js/script.js  "></script>
 
+<div class="flex flex-wrap gap-4 p-6 bg-gray-50 dark:bg-gray-900 rounded-xl mt-10">
+    <button onclick="calculateTotalMenuValue()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+        Calculate Total Value (.reduce)
+    </button>
+    
+    <button onclick="sortByPriceLowToHigh()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">
+        Sort by Price (.sort & .map)
+    </button>
+    
+    <button onclick="getAvailableItems()" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">
+        Show Available Only (.filter)
+    </button>
 </div>
-<footer class="bg-neutral-primary-soft" >
+
+
+
+<div class="max-w-4xl mx-auto mb-8 p-4 bg-gray-100 rounded-lg shadow">
+    <div class="flex flex-col md:flex-row gap-4">
+        <input type="text" id="search-bar" oninput="applyFilters()" placeholder="Search food name..." 
+            class="flex-1 p-2 border rounded bg-white text-gray-900">
+        
+        <select id="filter-options" onchange="applyFilters()" class="p-2 border rounded bg-white text-gray-900">
+            <option value="all">All Items</option>
+            <option value="low-price">Price: Under Rs. 500</option>
+            <option value="high-price">Price: Over Rs. 500</option>
+            <option value="fast-food">Category: Fast Food</option>
+            <option value="italian">Category: Italian</option>
+            <option value="available">Status: Available</option>
+        </select>
+    </div>
+</div>
+
+<div id="menu-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+    </div>
+
+    
+
+<div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md my-8">
+    <h2 class="text-2xl font-bold mb-4 text-black">Add New Food Item</h2>
+    <form id="add-food-form" class="space-y-4">
+        <input type="text" id="food-name" placeholder="Food Name" 
+            class="w-full p-2 border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500" required>
+        
+        <input type="number" id="food-price" placeholder="Price (Rs.)" 
+            class="w-full p-2 border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500" required>
+        
+        <select id="food-category" 
+                class="w-full p-2 border border-gray-300 rounded bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-red-500">
+            <option value="Fast Food">Fast Food</option>
+            <option value="Italian">Italian</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Sides">Sides</option>
+        </select>
+        
+        <button type="submit" class="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition duration-200">
+            Add to Menu
+        </button>
+    </form>
+</div>
+
+<div id="edit-modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+        <h2 class="text-xl font-bold mb-4">Edit Food Item</h2>
+        <input type="hidden" id="edit-id">
+        <input type="text" id="edit-name" class="w-full p-2 border rounded mb-2 text-gray-900 bg-white">
+        <input type="number" id="edit-price" class="w-full p-2 border rounded mb-2 text-gray-900 bg-white">
+        <div class="flex justify-end space-x-2 mt-4">
+            <button onclick="closeModal()" class="bg-gray-500 text-white px-4 py-2 rounded">Cancel</button>
+            <button onclick="updateItem()" class="bg-green-600 text-white px-4 py-2 rounded">Update</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="./src/database/script js/script.js"></script>
+
+
+<div class="mx-auto w-full max-w-screen-xl p-1 py-4 lg:py-6">
+<footer class="bg-neutral-primary-soft shadow-md border-t border-gray-100 shadow-[0px_0px_5px_2px_rgba(0,0,0,0.1)]" >
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
-            <a href="https://flowbite.com/" class="flex items-center">
+            <a href="../my-website-project/index.html" class="flex items-center">
                 <img src="https://flowbite.com/docs/images/logo.svg" class="h-7 me-3" alt="FlowBite Logo" />
-                <span class="text-heading self-center text-2xl font-semibold whitespace-nowrap">Flowbite</span>
+                <span class="text-heading self-center text-2xl font-semibold whitespace-nowrap">EatAll</span>
             </a>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Resources</h2>
+                <a href="../my-website-project/src/pages/about/about.html">
+                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">About Us</h2>
+                </a>
                 <ul class="text-body font-medium">
                     <li class="mb-4">
-                        <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
-                    </li>
-                    <li>
-                        <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
+                        <a href="../my-website-project/src/pages/contact/contact.html" class="">Contact Us</a>
                     </li>
                 </ul>
             </div>
             <div>
-                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Follow us</h2>
+                <a href="../my-website-project/src/pages/sign in/sign in.html">
+                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Sign In</h2>
+                </a>
                 <ul class="text-body font-medium">
                     <li class="mb-4">
-                        <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
-                    </li>
-                    <li>
-                        <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                        <a href="../my-website-project/src/pages/sign up/sign up.html" class="">Sign Up</a>
                     </li>
                 </ul>
             </div>
-            <div>
-                <h2 class="mb-6 text-sm font-semibold text-heading uppercase">Legal</h2>
-                <ul class="text-body font-medium">
-                    <li class="mb-4">
-                        <a href="#" class="hover:underline">Privacy Policy</a>
-                    </li>
-                    <li>
-                        <a href="#" class="hover:underline">Terms &amp; Conditions</a>
-                    </li>
-                </ul>
-            </div>
+            
         </div>
     </div>
     <hr class="my-6 border-default sm:mx-auto lg:my-8" />
     <div class="sm:flex sm:items-center sm:justify-between">
-        <span class="text-sm text-body sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+        <span class="text-sm text-body sm:text-center">© 2026 <a href="../my-website-project/index.html" class="hover:underline">  EatAll™</a>. All Rights Reserved.
         </span>
         <div class="flex mt-4 sm:justify-center sm:mt-0">
             <a href="#" class="text-body hover:text-heading">
@@ -151,7 +298,17 @@
     </div>
     </div>
 </footer>
+</div>
 <script src="https://unpkg.com/flowbite@latest/dist/flowbite.min.js"></script>
+<script type="module">  
+    import { getInitialTheme, applyTheme, toggleTheme, updateToggleButton } from './src/utilites/theme.js';
+
+    const saved = getInitialTheme();
+    applyTheme(saved);
+    updateToggleButton(saved);
+
+    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+</script>
 
 
 </body>
