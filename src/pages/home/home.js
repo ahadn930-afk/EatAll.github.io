@@ -50,3 +50,67 @@ window.filterBeverages = () => {
 };
 
 // ✅ Theme is now handled by src/utils/theme.js — nothing needed here
+
+
+let foods = [];
+let editIndex = null;
+
+const form = document.getElementById("foodForm");
+const nameInput = document.getElementById("name");
+const priceInput = document.getElementById("price");
+const table = document.getElementById("foodTable");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const food = {
+        name: nameInput.value,
+        price: priceInput.value
+    };
+
+    if (editIndex === null) {
+        foods.push(food);
+    } else {
+        foods[editIndex] = food;
+        editIndex = null;
+    }
+
+    form.reset();
+    displayFoods();
+});
+
+function displayFoods() {
+    table.innerHTML = "";
+
+    foods.forEach((food, index) => {
+        table.innerHTML += `
+            <tr class="border-b hover:bg-gray-100">
+                <td class="p-2">${food.name}</td>
+                <td class="p-2">${food.price}</td>
+                <td class="p-2 space-x-2">
+                    <button onclick="editFood(${index})"
+                        class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+                        Edit
+                    </button>
+                    <button onclick="deleteFood(${index})"
+                        class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+function editFood(index) {
+    const food = foods[index];
+    nameInput.value = food.name;
+    priceInput.value = food.price;
+    editIndex = index;
+}
+
+function deleteFood(index) {
+    foods.splice(index, 1);
+    displayFoods();
+}window.editFood = editFood;
+window.deleteFood = deleteFood;
